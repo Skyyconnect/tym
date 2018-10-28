@@ -1,0 +1,36 @@
+Based on what you think can be encoded we will figure out how to pre or post filter the operation to select for the other query parameters.
+ 
+Some Assumptions
+An individual, Jill, has a unified calendar U which encodes all free/busy information
+An individual Jill, has a service calendar S which encodes all free/busy information for her hair services, service calendar B for her barbering classes , and service calendar P for her personal appointments
+An individual Jill has single appointments of some duration and on a specific date and time that when added create the free/busy information (service related ones sum to a service calendar S or B and personal to her personal calendar P, when then sum to her total free/busy)… so Jill total free/busy = P + S + B
+ 
+Ideally we can encode the following in the chronosphere or have the timekeeper know how to filter on data from our user database in a second pass or as a feed in to make the following possible:
+Service (a service calendar like woodworking or tutoring)
+Provider location (geography like Berkeley, CA) and distance ( we will have the Lat/Long coordinates for their city class somewhere unless we can encode in vector/frequency space as well)
+Availability (free and busy intervals) and ability to generate start times
+ 
+The most restrictive query being something like “find all math tutors free for 60 min within 5 miles of the city center of Palo Alto, CA within the next two weeks and return the start times of this 60 min lesson)
+ 
+Find all appointments for user X (one or many user IDs, IDs with service filter )
+Return a list of Jill’s appointments (all)
+Return a list of Jill and Chris’ appointments (for all hair appointments of superclass X but none of her other services)
+Return a list of Jill’s appointments (men’s haircuts of service class X )
+ 
+Find all free time for user X (one or many user IDs)
+Return a list of Jill’s empty time blocks
+Return a list of Jill and Jack’s empty time blocks
+ 
+Find all jointly available free time for user X and Y (could be many IDs)
+Return the free time blocks for a union of Jack and Jill
+ 
+Return all start times for an appointment that has duration N (in minutes) with time objects X (time IDs of individuals or other time assets involved)
+Return start times for a 30 min service with (Blow Salon, Jill, Jill’s chair)
+ 
+Return all start times for an appointment that has duration N (in min) for service Y (service class or superclass ID)
+Return start times for a 30 min service men’s haircut for all service providers
+ 
+Return all people/time-assets who are free for duration of N between day/time 1 and day/time 2
+Given interval of 60 min in next 7 business days, who or what has at least one slot
+
+
